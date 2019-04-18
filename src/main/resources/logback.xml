@@ -16,11 +16,11 @@
 
   <appender name="FILE"
     class="ch.qos.logback.core.rolling.RollingFileAppender">
-    <file>./logs/tron.log</file>
+    <file>./logs/sonicx-wallet-cli.log</file>
     <rollingPolicy
       class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
       <!-- rollover daily -->
-      <fileNamePattern>./logs/tron-%d{yyyy-MM-dd}.%i.log.tar.gz</fileNamePattern>
+      <fileNamePattern>./logs/sonicx-wallet-cli-%d{yyyy-MM-dd}.%i.log.tar.gz</fileNamePattern>
       <!-- each file should be at most 500MB, keep 30 days worth of history, but at most 50GB -->
       <maxFileSize>500MB</maxFileSize>
       <maxHistory>720</maxHistory>

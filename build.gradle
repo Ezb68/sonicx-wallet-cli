@@ -1,4 +1,4 @@
-group 'Tron'
+group 'Sonicx'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
@@ -116,12 +116,12 @@ protobuf {
 
 run {
     standardInput = System.in
-    mainClassName = 'org.tron.walletcli.Client'
+    mainClassName = 'org.sonicx.walletcli.Client'
 }
 
 
 shadowJar {
-    baseName = 'wallet-cli'
+    baseName = 'sonicx-wallet-cli'
     classifier = null
     version = null
 }

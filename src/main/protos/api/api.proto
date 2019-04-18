@@ -1,14 +1,14 @@
 syntax = "proto3";
 package protocol;
 
-import "core/Tron.proto";
+import "core/Sonicx.proto";
 import "core/Contract.proto";
 import "google/api/annotations.proto";
 
 
-option java_package = "org.tron.api"; //Specify the name of the package that generated the Java file
+option java_package = "org.sonicx.api"; //Specify the name of the package that generated the Java file
 option java_outer_classname = "GrpcAPI"; //Specify the class name of the generated Java file
-option go_package = "github.com/tronprotocol/grpc-gateway/api";
+option go_package = "github.com/SonicXChain/grps-gateway/api";
 
 service Wallet {
 
@@ -316,13 +316,10 @@ service Wallet {
       }
     };
   }
-
   rpc GetAssetIssueListByName (BytesMessage) returns (AssetIssueList) {
   }
-
   rpc GetAssetIssueById (BytesMessage) returns (AssetIssueContract) {
   }
-
   //Please use GetNowBlock2 instead of this function.
   rpc GetNowBlock (EmptyMessage) returns (Block) {
     option (google.api.http) = {
@@ -602,7 +599,13 @@ service Wallet {
   }
 
   rpc AccountPermissionUpdate (AccountPermissionUpdateContract) returns (TransactionExtention) {
-
+    option (google.api.http) = {
+      post: "/wallet/accountpermissionupdate"
+      body: "*"
+      additional_bindings {
+        get: "/wallet/accountpermissionupdate"
+      }
+    };
   }
 
 
@@ -671,12 +674,11 @@ service WalletSolidity {
         }
       };
   }
+
   rpc GetAssetIssueByName (BytesMessage) returns (AssetIssueContract) {
   }
-
   rpc GetAssetIssueListByName (BytesMessage) returns (AssetIssueList) {
   }
-
   rpc GetAssetIssueById (BytesMessage) returns (AssetIssueContract) {
   }
 
@@ -721,6 +723,7 @@ service WalletSolidity {
 
   rpc ListExchanges (EmptyMessage) returns (ExchangeList) {
   };
+
 
   rpc GetTransactionById (BytesMessage) returns (Transaction) {
     option (google.api.http) = {
@@ -781,7 +784,7 @@ service WalletExtension {
   }
 };
 
-// the api of tron's db
+// the api of SonicX's db
 service Database {
   // for tapos
   rpc getBlockReference (EmptyMessage) returns (BlockReference) {
@@ -810,6 +813,8 @@ message Return {
     TOO_BIG_TRANSACTION_ERROR = 7;
     TRANSACTION_EXPIRATION_ERROR = 8;
     SERVER_BUSY = 9;
+    NO_CONNECTION = 10;
+    NOT_ENOUGH_EFFECTIVE_CONNECTION = 11;
     OTHER_ERROR = 20;
   }
 
@@ -823,7 +828,7 @@ message BlockReference {
   bytes block_hash = 2;
 }
 
-// the api of tron's network such as node list.
+// the api of SonicX's network such as node list.
 service Network {
 
 };
@@ -1000,7 +1005,7 @@ message TransactionSignWeight {
       NOT_ENOUGH_PERMISSION = 1; // error in
       SIGNATURE_FORMAT_ERROR = 2;
       COMPUTE_ADDRESS_ERROR = 3;
-      PERMISSION_ERROR = 4;      //The key is not in permission
+      PERMISSION_ERROR = 4; //The key is not in permission
       OTHER_ERROR = 20;
     }
     response_code code = 1;
