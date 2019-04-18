@@ -1,8 +1,8 @@
-# wallet-cli [![Build Status](https://travis-ci.org/SonicXChain/sonicx-wallet-cli.svg?branch=master)](https://travis-ci.org/SonicXChain/sonicx-wallet-cli)
-Wallet CLI
+# sonicx-wallet-cli [![Build Status](https://travis-ci.org/SonicXChain/sonicx-wallet-cli.svg?branch=master)](https://travis-ci.org/SonicXChain/sonicx-wallet-cli)
+SonicX Wallet CLI
 
 
-Download wallet-cli
+Download sonicx-wallet-cli
 ---------------------------------
 git clone https://github.com/SonicXChain/sonicx-wallet-cli.git
 
@@ -28,12 +28,12 @@ soliditynode = {
 }//note: solidity node is optional
 
 ```
-Build and run wallet-cli by command line
+Build and run sonicx-wallet-cli by command line
 ----------------------------------------
 Create a new command line terminal window.
 
 ```
-cd wallet-cli  
+cd sonicx-wallet-cli  
 ./gradlew build      
 ./gradlew run
 ```
@@ -41,21 +41,21 @@ cd wallet-cli
 Build and run web wallet
 ----------------------------------------
 ```
-cd wallet-cli  
+cd sonicx-wallet-cli  
 ./gradlew build
 cd build/libs
-java -jar wallet-cli.jar
+java -jar sonicx-wallet-cli.jar
 ```
 
 
 How sonicx-wallet-cli connects to sonicx :
 --------------------------------------
-Sonicx-wallet-cli connect to sonicx by grpc protocol.          
-Sonicx nodes can be deployed locally or remotely.          
-We can set the connected sonicx node IP in config.conf of wallet-cli.
+sonicx-wallet-cli connect to sonicx by grpc protocol.          
+sonicx nodes can be deployed locally or remotely.          
+We can set the connected sonicx node IP in config.conf of sonicx-wallet-cli.
  
 
-Wallet-cli supported command list:
+sonicx-wallet-cli supported command list:
 ----------------------------------
 
 RegisterWallet  
@@ -157,7 +157,7 @@ Voting requires share. Share can be obtained by freezing funds.
 For example：
 
 ```
-freezeBalance 100000000 3 1 address  // Freeze 10TRX and acquire 10 units of shares
+freezeBalance 100000000 3 1 address  // Freeze 10SOX and acquire 10 units of shares
 
 votewitness 123455 witness1 4 witness2 6   // Cast 4 votes for witness1 and 6 votes for witness2 at the same time.
 
@@ -208,7 +208,7 @@ Transfer to a non-existent account with a minimum transfer amount of **1SOX**.
 Command line operation flow example
 -----------------------------------      
 
-cd wallet-cli  
+cd sonicx-wallet-cli  
 ./gradlew build      
 ./gradlew run                                                                               
 RegisterWallet 123456      (password = 123456)                                                        
